@@ -1,0 +1,27 @@
+-- contar a quantidade de caracteres
+select char_length('e infelizmente, nunca nenhum sistema vai atendê-la do jeito que ela quer')
+
+-- diminuir fonte
+select lower ('KAMILA')
+
+-- aumentar fonte
+select upper ('kamila')
+
+-- para dar concatenar usa a função concat ou ||
+--concat
+select concat(primeiro_nome, ' ', ultimo_nome) from aluno
+
+-- ||
+select (primeiro_nome || ' ' || ultimo_nome) AS nome_completo from aluno;
+
+-- para converter uma função inserir (::) sem essa função o resultado é data mais timezone
+select (primeiro_nome || ' ' || ultimo_nome) AS nome_completo, (now()::DATE - data_nascimento)/365 AS idade from aluno;
+
+-- função AGE traz a idade completa
+select (primeiro_nome || ' ' || ultimo_nome) AS nome_completo, AGE(data_nascimento) AS idade from aluno;
+
+-- função extract: serve para extrair uma informação ou dado desejado - no exemplo abaixo extrai somente o ano de nascimento
+select (primeiro_nome || ' ' || ultimo_nome) AS nome_completo, extract (year from age(data_nascimento)) AS idade from aluno;
+
+
+	
